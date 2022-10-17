@@ -49,8 +49,6 @@ class Service extends Model
         'short_description' => 'required',
         'description' => 'required',
         'price' => 'required',
-        'image' => 'required',
-        'image_alt' => 'required'
     ];
 
     public const VALIDATE_MESSAGES = [
@@ -58,7 +56,5 @@ class Service extends Model
         'short_description.required' => 'La descripción corta es requerida',
         'description.required' => 'La descripción es requerida',
         'price.required' => 'El precio es requerido',
-        'image.required' => 'La imagen es requerida',
-        'image_alt.required' => 'El texto alternativo de la imagen es requerido'
     ];
 }

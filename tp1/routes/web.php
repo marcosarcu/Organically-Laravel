@@ -17,4 +17,12 @@ Route::get('/', ['\App\Http\Controllers\HomeController', 'index'])->name('home')
 Route::get('/admin', ['\App\Http\Controllers\AdminController', 'index'])->name('admin');
 Route::get('/admin/new/service', ['\App\Http\Controllers\AdminController', 'newService'])->name('admin.newService');
 Route::post('/admin/new/service', ['\App\Http\Controllers\AdminController', 'storeService'])->name('admin.storeService');
-Route::get('/admin/edit/service', ['\App\Http\Controllers\AdminController', 'editService'])->name('admin.editService');
+
+Route::get('/admin/edit/service/{id}', ['\App\Http\Controllers\AdminController', 'editService'])
+->whereNumber('id')
+->name('admin.editService');
+
+Route::post('/admin/edit/service/{id}', ['\App\Http\Controllers\AdminController', 'updateService'])->name('admin.updateService');
+
+Route::get('/admin/delete/service/{id}', ['\App\Http\Controllers\AdminController', 'confirmDeleteService'])->name('admin.confirmDeleteService');
+Route::post('/admin/delete/service/{id}', ['\App\Http\Controllers\AdminController', 'deleteService'])->name('admin.deleteService');

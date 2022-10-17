@@ -21,6 +21,7 @@
                     <td><img class="img-fluid" src="{{'./imgs/' . $service->image}}" alt="{{$service->image_alt}}"></td>
                     <td>
                         <a href="{{route('admin.editService', $service->id)}}" class="btn btn-primary">Editar</a>
+                        <a href="{{route('admin.confirmDeleteService', $service->id)}}" class="btn btn-danger">Eliminar</a>
                     </td>
                 </tr>
             @endforeach

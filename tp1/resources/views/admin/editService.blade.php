@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="mt-5">Actualizar Servicio</h1>
-<form action="{{route('admin.updateService')}}" method="POST" enctype="multipart/form-data">
+<form action="{{route('admin.updateService', $service->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
         <label for="name" class="form-label
@@ -11,7 +11,7 @@
             text-danger
         @enderror
         ">Nombre</label>
-        <input type="text" class="form-control
+        <input type="text" value="{{$service['name']}}" class="form-control
         @error('name')
             border border-danger
         @enderror
@@ -26,7 +26,7 @@
             text-danger
         @enderror
         ">Descripción corta</label>
-        <input type="text" class="form-control
+        <input type="text" value="{{$service['short_description']}}" class="form-control
         @error('short_description')
             border border-danger
         @enderror
@@ -41,11 +41,11 @@
             text-danger
         @enderror
         ">Descripción</label>
-        <textarea class="form-control
+        <textarea value="{{$service['description']}}" class="form-control
         @error('description')
             border border-danger
         @enderror
-        " id="description" name="description" rows="3">{{old('description')}}</textarea>
+        " id="description" name="description" rows="3">{{$service['description']}}</textarea>
         @error('description')
             <div class="text-danger">{{$message}}</div>
         @enderror
@@ -56,7 +56,7 @@
             text-danger
         @enderror
         ">Precio</label>
-        <input type="number" step="0.01" class="form-control
+        <input type="number" step="0.01" value="{{$service['price']}}" class="form-control
         @error('price')
             border border-danger
         @enderror
@@ -64,6 +64,10 @@
         @error('price')
             <div class="text-danger">{{$message}}</div>
         @enderror
+    </div>
+    <div class="mb-3">
+        <p class="form-label">Imagen actual</p>
+        <img src="{{'../../../imgs/' . $service['image']}}" alt="{{$service['image_alt']}}">
     </div>
     <div class="mb-3">
         <label for="image" class="form-label
@@ -86,7 +90,7 @@
             text-danger
         @enderror
         ">Texto alternativo de la imagen</label>
-        <input type="text" class="form-control
+        <input type="text" value="{{$service['image_alt']}}" class="form-control
         @error('image_alt')
             border border-danger
         @enderror
