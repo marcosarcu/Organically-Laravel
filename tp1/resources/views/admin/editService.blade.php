@@ -15,9 +15,15 @@
         @error('name')
             border border-danger
         @enderror
-        " id="name" name="name">
+        " id="name" name="name"
         @error('name')
-            <div class="text-danger">{{$message}}</div>
+            aria-describedby="nameError"
+        @enderror
+
+        @enderror
+        >
+        @error('name')
+            <div id="nameError" class="text-danger">{{$message}}</div>
         @enderror
     </div>
     <div class="mb-3">
@@ -30,9 +36,13 @@
         @error('short_description')
             border border-danger
         @enderror
-        " id="short_description" name="short_description">
+        " id="short_description" name="short_description"
         @error('short_description')
-            <div class="text-danger">{{$message}}</div>
+            aria-describedby="short_descriptionError"
+        @enderror
+        >
+        @error('short_description')
+            <div id="short_descriptionError" class="text-danger">{{$message}}</div>
         @enderror
     </div>
     <div class="mb-3">
@@ -45,9 +55,15 @@
         @error('description')
             border border-danger
         @enderror
-        " id="description" name="description" rows="3">{{$service['description']}}</textarea>
+        " id="description" name="description" rows="3"
         @error('description')
-            <div class="text-danger">{{$message}}</div>
+            aria-describedby="descriptionError"
+        @enderror
+
+        @enderror
+        >{{$service['description']}}</textarea>
+        @error('description')
+            <div id="descriptionError" class="text-danger">{{$message}}</div>
         @enderror
     </div>
     <div class="mb-3">
@@ -60,9 +76,15 @@
         @error('price')
             border border-danger
         @enderror
-        " id="price" name="price" >
+        " id="price" name="price"
         @error('price')
-            <div class="text-danger">{{$message}}</div>
+            aria-describedby="priceError"
+        @enderror
+
+        @enderror
+        >
+        @error('price')
+            <div id="priceError" class="text-danger">{{$message}}</div>
         @enderror
     </div>
     <div class="mb-3">

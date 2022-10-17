@@ -32,7 +32,16 @@
             </nav>
         </div>
     </header>
-
+    @if(session('success'))
+        <div class="container-md p-2 mt-2 mb-2 alert alert-success">
+            {{session('success')}}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="container-md p-2 mt-2 mb-2 alert alert-danger">
+            {{session('error')}}
+        </div>
+    @endif
     <main class="container-md">
         @yield('content')
     </main>
