@@ -20,7 +20,6 @@
             aria-describedby="nameError"
         @enderror
 
-        @enderror
         >
         @error('name')
             <div id="nameError" class="text-danger">{{$message}}</div>
@@ -60,7 +59,6 @@
             aria-describedby="descriptionError"
         @enderror
 
-        @enderror
         >{{$service['description']}}</textarea>
         @error('description')
             <div id="descriptionError" class="text-danger">{{$message}}</div>
@@ -80,8 +78,6 @@
         @error('price')
             aria-describedby="priceError"
         @enderror
-
-        @enderror
         >
         @error('price')
             <div id="priceError" class="text-danger">{{$message}}</div>
@@ -89,7 +85,7 @@
     </div>
     <div class="mb-3">
         <p class="form-label">Imagen actual</p>
-        <img src="{{'../../../imgs/' . $service['image']}}" alt="{{$service['image_alt']}}">
+        <img src="{{url($service['image'])}}" alt="{{$service['image_alt']}}">
     </div>
     <div class="mb-3">
         <label for="image" class="form-label

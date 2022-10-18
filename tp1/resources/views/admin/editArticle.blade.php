@@ -78,7 +78,7 @@
 
     <div class="mb-3">
         <p class="form-label">Imagen actual</p>
-        <img src="{{'../../../imgs/' . $article['image']}}" alt="" width="200px">
+        <img src="{{url($article['image'])}}" alt="" width="200px">
     </div>
 
     <div class="mb-3">

@@ -18,6 +18,7 @@ Route::get('/', ['\App\Http\Controllers\HomeController', 'index'])->name('home')
 // Auth routes
 Route::get('/login', ['\App\Http\Controllers\AuthController', 'loginForm'])->name('loginForm');
 Route::post('/login', ['\App\Http\Controllers\AuthController', 'login'])->name('login');
+Route::post('/logout', ['\App\Http\Controllers\AuthController', 'logout'])->name('logout');
 
 
 Route::middleware(['auth'])->group(function () {
