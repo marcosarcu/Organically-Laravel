@@ -13,10 +13,17 @@ class HomeController extends Controller
     {
         $services = Service::all();
         $articles = Article::all();
+        $articlesShort = [];
+        foreach($articles as $article) {
+            $article->description = substr($article->description, 0, 150) . '...';
+            $articlesShort[] = $article;
+        }
+
+
         return view('index', [
         'title'=> 'Organically - Crecé con nosotros',
         'services'=> $services,
-        'articles'=> $articles
+        'articles'=> $articlesShort
         ]);
     }
 }

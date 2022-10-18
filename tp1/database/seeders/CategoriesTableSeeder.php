@@ -17,14 +17,17 @@ class CategoriesTableSeeder extends Seeder
     {
         //
         DB::table('Categories')->insert([
+            'id' => 1,
             'name' => 'Noticias',
             'description' => 'Últimas Noticias',
         ]);
         DB::table('Categories')->insert([
+            'id' => 2,
             'name' => 'Tutoriales',
             'description' => 'Aprendé a usar nuestros servicios',
         ]);
         DB::table('Categories')->insert([
+            'id' => 3,
             'name' => 'Eventos',
             'description' => 'Próximos eventos',
         ]);
