@@ -2,7 +2,8 @@
 
 @section('content')
 
-<h1 class="mt-5">Nuevo Articulo</h1>
+<section class="row pt-5 pb-5 align-items-center g-5">
+<h1 class="mt-5">Editar Articulo</h1>
 <form action="{{route('admin.updateArticle', $article->id)}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="mb-3">
@@ -78,7 +79,7 @@
 
     <div class="mb-3">
         <p class="form-label">Imagen actual</p>
-        <img src="{{url($article['image'])}}" alt="" width="200px">
+        <img src="{{url('/imgs/' . $article['image'])}}" alt="" width="200px">
     </div>
 
     <div class="mb-3">
@@ -97,7 +98,7 @@
     </div>
 
     <button type="submit" class="btn btn-primary">Actualizar</button>
-
-
+    </form>
+</section>
 @stop
 

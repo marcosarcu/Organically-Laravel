@@ -41,7 +41,7 @@ h3{
     padding: 0;
 }
 
-.pricing-container{
+.cards-container{
     margin-top: 20px;
     padding: 0;
     display: grid;
@@ -49,14 +49,26 @@ h3{
     gap: 20px;
 }
 
+.price{
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.admin-img{
+    max-width: 200px;
+}
+
 @media screen and (max-width: 768px){
-    .pricing-container{
+    .cards-container{
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media screen and (max-width: 550px){
-    .pricing-container{
+    .cards-container{
         grid-template-columns: 1fr;
     }
 }
+
+

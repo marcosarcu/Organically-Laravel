@@ -11,20 +11,20 @@
 <body class="hero-bg">
     <header class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-md">
-            <a class="navbar-brand" href="#"><img id="header-logo" src=" {{ url('/imgs/logo.png') }}" alt=""></a>
+            <a class="navbar-brand" href="{{route('home')}}"><img id="header-logo" src=" {{ url('/imgs/logo.png') }}" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <nav class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
                 <li class="nav-item m-1">
-                    <a class="nav-link" aria-current="page" href="#">Inicio</a>
+                    <a class="nav-link" aria-current="page" href="{{route('home')}}">Inicio</a>
                 </li>
                 <li class="nav-item m-1">
-                    <a class="nav-link" href="#">Precios</a>
+                    <a class="nav-link" href="{{route('home')}}#precios">Precios</a>
                 </li>
                 <li class="nav-item m-1">
-                    <a class="nav-link" href="#">Novedades</a>
+                    <a class="nav-link" href="{{route('home')}}#blog">Novedades</a>
                 </li>
                 @guest
                     <li class="nav-item m-1">
@@ -79,7 +79,7 @@
     <footer class="bg-light">
         <div class="container-md">
             <div class="row">
-                <p>Footer</p>
+                <p class="text-center m-1">&copy Marcos Arcusin - DWT4AV | Portales y Comercio Electrónico</p>
             </div>
         </div>
     </footer>

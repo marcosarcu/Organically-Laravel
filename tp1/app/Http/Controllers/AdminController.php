@@ -16,7 +16,7 @@ class AdminController extends Controller
         return view('/admin/index', [
             'services' => $services,
             'articles' => $articles,
-            'title' => 'Admin'
+            'title' => 'Panel de Adminstración'
         ]
     );
     }
@@ -25,7 +25,7 @@ class AdminController extends Controller
     public function editService($id)
     {
         return view('/admin/editService', [
-            'title' => 'Admin',
+            'title' => 'Editar Servicio',
             'service' => Service::find($id)
         ]);
     }
@@ -33,7 +33,7 @@ class AdminController extends Controller
     public function newService()
     {
         return view('/admin/newService', [
-            'title' => 'Admin'
+            'title' => 'Nuevo Servicio'
         ]);
     }
 
@@ -77,7 +77,7 @@ class AdminController extends Controller
 
     public function confirmDeleteService($id){
         return view('/admin/confirmDeleteService', [
-            'title' => 'Admin',
+            'title' => 'Confirmar eliminación',
             'service' => Service::find($id)
         ]);
     }
@@ -94,7 +94,7 @@ class AdminController extends Controller
     {
         $categories = \App\Models\Category::all();
         return view('/admin/newArticle', [
-            'title' => 'Admin',
+            'title' => 'Nuevo artículo',
             'categories' => $categories
         ]);
     }
@@ -125,7 +125,7 @@ class AdminController extends Controller
     {
         $categories = \App\Models\Category::all();
         return view('/admin/editArticle', [
-            'title' => 'Admin',
+            'title' => 'Editar artículo',
             'article' => Article::find($id),
             'categories' => $categories
         ]);
@@ -149,7 +149,7 @@ class AdminController extends Controller
 
     public function confirmDeleteArticle($id){
         return view('/admin/confirmDeleteArticle', [
-            'title' => 'Admin',
+            'title' => 'Confirmar eliminación',
             'article' => Article::find($id)
         ]);
     }
