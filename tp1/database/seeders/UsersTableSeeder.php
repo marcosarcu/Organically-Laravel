@@ -20,6 +20,15 @@ class UsersTableSeeder extends Seeder
             'name' => 'Marcos Arcusin',
             'email' => 'marcosarcu@gmail.com',
             'password' => Hash::make('123456'),
+            'admin' => true,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        DB::table('users')->insert([
+            'name' => 'Joe Doe',
+            'email' => 'joedoe@gmail.com',
+            'password' => Hash::make('123456'),
+            'admin' => false,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

@@ -22,7 +22,7 @@ Route::post('/login', ['\App\Http\Controllers\AuthController', 'login'])->name('
 Route::post('/logout', ['\App\Http\Controllers\AuthController', 'logout'])->name('logout');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['admin'])->group(function () {
     // Admin routes
     Route::get('/admin', ['\App\Http\Controllers\AdminController', 'index'])->name('admin');
     // Services ABM

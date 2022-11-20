@@ -31,7 +31,7 @@
                     <tr class="align-items-center">
                         <td><img class="admin-img" src="{{'./imgs/' . $service->image}}" alt="{{$service->image_alt}}"></td>
                         <td><p>{{$service->name}}</p></td>
-                        <td><p>{{$service->price}}</p></td>
+                        <td><p>$ {{$service->price}}</p></td>
                         <td>
                             <a href="{{route('admin.editService', $service->id)}}" class="btn btn-primary">Editar</a>
                             <a href="{{route('admin.confirmDeleteService', $service->id)}}" class="btn btn-danger">Eliminar</a>

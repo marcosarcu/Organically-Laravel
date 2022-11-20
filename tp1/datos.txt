@@ -1,0 +1,7 @@
+Carrera: Diseño y desarrollo Web
+Materia: Portales y Comercio Electrónico
+Cuatrimestre: 4to
+Comisión: DWT4AV
+Alumno: Marcos Aaron Arcusin
+Docente: Santiago Gallino
+Carácter de entrega: 1er parcial

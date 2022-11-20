@@ -22,9 +22,15 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             request()->session()->regenerate();
 
+            if (Auth::user()->admin == true) {
+                return redirect()
+                ->route('admin')
+                ->with('success', 'Sesión iniciada con éxito. ¡Bienvenido/a de vuelta!');
+            }
             return redirect()
-            ->route('admin')
+            ->route('home')
             ->with('success', 'Sesión iniciada con éxito. ¡Bienvenido/a de vuelta!');
+
         }
 
         return back()->with('error', 'Las credenciales ingresadas no son válidas');
