@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
+
+
 class AuthController extends Controller
 {
     //
@@ -33,7 +37,26 @@ class AuthController extends Controller
 
         }
 
-        return back()->with('error', 'Las credenciales ingresadas no son válidas');
+        return back()->with('error', 'Las credenciales ingresadas no son válidas')->withInput($request->only('email'));
+    }
+
+    public function registerForm()
+    {
+        return view('auth.register')->with('title', 'Registro');
+    }
+
+    public function register(Request $request)
+    {
+
+        $request->validate(User::VALIDATE_RULES, User::VALIDATE_MESSAGES);
+
+        User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        return redirect()->route('loginForm')->with('success', 'Usuario creado con éxito. Inicie sesión para continuar');
     }
 
     public function logout(Request $request){

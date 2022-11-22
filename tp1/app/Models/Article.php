@@ -20,7 +20,6 @@ class Article extends Model
     public const VALIDATE_RULES = [
         'title' => 'required',
         'description' => 'required',
-        // category_id is required and can't be 0
         'category_id' => 'required|not_in:0',
     ];
 

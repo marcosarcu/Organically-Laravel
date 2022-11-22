@@ -59,6 +59,13 @@ h3{
     max-width: 200px;
 }
 
+.centerbtn{
+    margin: auto;
+    display: block;
+    width: fit-content;
+}
+
+
 @media screen and (max-width: 768px){
     .cards-container{
         grid-template-columns: repeat(2, 1fr);

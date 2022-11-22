@@ -19,4 +19,18 @@ class BlogController extends Controller
             'category' => $category
         ]);
     }
+
+    public function archive()
+    {
+        $articles = Article::all();
+        $articlesShort = [];
+        foreach($articles as $article) {
+            $article->description = substr($article->description, 0, 150) . '...';
+            $articlesShort[] = $article;
+        }
+        return view('blog.archive', [
+            'title' => 'Artículos - Organically',
+            'articles' => $articlesShort
+        ]);
+    }
 }

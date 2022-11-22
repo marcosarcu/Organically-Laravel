@@ -51,7 +51,32 @@ class User extends Authenticatable
         'email',
         'password',
         'admin',
+        'contractedServiceId',
     ];
+
+    public const VALIDATE_RULES = [
+        'name' => 'required',
+        'email' => 'required|email|unique:users',
+        'password' => 'required|min:6',
+        'password_confirmation' => 'required|same:password',
+    ];
+
+    public const VALIDATE_MESSAGES = [
+        'name.required' => 'El campo nombre es obligatorio',
+        'email.required' => 'El campo email es obligatorio',
+        'email.email' => 'El campo email debe ser un email válido',
+        'email.unique' => 'El email ingresado ya está registrado',
+        'password.required' => 'El campo contraseña es obligatorio',
+        'password.min' => 'La contraseña debe tener al menos 8 caracteres',
+        'password_confirmation.required' => 'El campo confirmar contraseña es obligatorio',
+        'password_confirmation.same' => 'Las contraseñas no coinciden',
+    ];
+
+    public function contractedService()
+    {
+        return $this->belongsTo(Service::class);
+    }
+
 
     /**
      * The attributes that should be hidden for serialization.

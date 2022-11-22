@@ -27,22 +27,27 @@
                     <a class="nav-link" href="{{route('home')}}#precios">Precios</a>
                 </li>
                 <li class="nav-item m-1">
-                    <a class="nav-link" href="{{route('home')}}#blog">Novedades</a>
+                    <a class="nav-link" href="{{route('blog')}}">Novedades</a>
                 </li>
                 @guest
                     <li class="nav-item m-1">
-                        <a class="btn btn-primary" href="{{route('login')}}">Iniciar sesion</a>
+                        <a class="nav-link" href="{{route('login')}}">Iniciar sesion</a>
+                    </li>
+                    <li class="nav-item m-1">
+                        <a class="btn btn-primary" href="{{route('register')}}">Regístrate</a>
                     </li>
                 @endguest
                 @auth
-                    @if(Route::is('admin'))
-                        <li class="nav-item m-1">
-                            <a class="btn btn-primary" href="{{route('home')}}">Ir al sitio</a>
-                        </li>
-                    @else
-                        <li class="nav-item m-1">
-                            <a class="btn btn-primary" href="{{route('admin')}}">Panel de administración</a>
-                        </li>
+                    @if (Auth::user()->admin)
+                        @if(Route::is('admin'))
+                            <li class="nav-item m-1">
+                                <a class="btn btn-primary" href="{{route('home')}}">Ir al sitio</a>
+                            </li>
+                        @else
+                            <li class="nav-item m-1">
+                                <a class="btn btn-primary" href="{{route('admin')}}">Panel de administración</a>
+                            </li>
+                        @endif
                     @endif
                     <li class="nav-item m-1">
                         <form action="{{route('logout')}}" method="POST">
@@ -89,5 +94,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 </html>
-
-

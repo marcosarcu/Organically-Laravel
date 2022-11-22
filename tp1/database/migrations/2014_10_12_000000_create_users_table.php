@@ -20,6 +20,8 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->boolean('admin')->default(false);
+            // $table->unsignedInteger('contractedServiceId')->nullable();
+            $table->foreignId('contracted_service_id')->nullable()->constrained('services');
             $table->rememberToken();
             $table->timestamps();
         });

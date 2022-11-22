@@ -5,23 +5,30 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\User;
 
 class AdminController extends Controller
 {
     // Index
     public function index()
     {
-        $services = Service::all();
-        $articles = Article::with('category')->get();
         return view('/admin/index', [
-            'services' => $services,
-            'articles' => $articles,
             'title' => 'Panel de Adminstración'
         ]
     );
     }
 
     // Services ABM
+
+    public function servicesAdmin()
+    {
+        $services = Service::all();
+        return view('/admin/servicesAdmin', [
+            'services' => $services,
+            'title' => 'Administrar Servicios'
+        ]);
+    }
+
     public function editService($id)
     {
         return view('/admin/editService', [
@@ -89,6 +96,15 @@ class AdminController extends Controller
     }
 
     // Articles ABM
+
+    public function articlesAdmin()
+    {
+        $articles = Article::with('category')->get();
+        return view('/admin/articlesAdmin', [
+            'articles' => $articles,
+            'title' => 'Administrar Artículos'
+        ]);
+    }
 
     public function newArticle()
     {
@@ -163,6 +179,60 @@ class AdminController extends Controller
         }
     }
 
+    // Users ABM
+
+    public function usersAdmin()
+    {
+        $users = User::with('contractedService')->get();
+
+
+        // $users = User::all();
+        // $usersWithService = [];
+        // foreach ($users as $user) {
+        //     $contractedService = Service::find($user->contractedServiceId);
+        //     if($contractedService != null){
+        //         $user->contractedService = $contractedService->name;
+        //     } else {
+        //         $user->contractedService = 'Sin servicio contratado';
+        //     }
+        //     $usersWithService[] = $user;
+        // }
+
+        return view('/admin/usersAdmin', [
+            'users' => $users,
+            'title' => 'Administrar Usuarios'
+        ]);
+    }
+
+    public function makeAdmin (){
+        $user = User::find(request('id'));
+        $user->admin = true;
+        $user->save();
+        return redirect()->route('usersAdmin')->with('success', 'Usuario actualizado con éxito');
+    }
+
+    public function removeAdmin(){
+        $user = User::find(request('id'));
+        $user->admin = false;
+        $user->save();
+        return redirect()->route('usersAdmin')->with('success', 'Usuario actualizado con éxito');
+    }
+
+    public function confirmDeleteUser($id){
+        return view('/admin/confirmDeleteUser', [
+            'title' => 'Confirmar eliminación',
+            'user' => User::find($id)
+        ]);
+    }
+
+    public function deleteUser($id)
+    {
+        if(User::find($id)->delete()){
+            return redirect()->route('usersAdmin')->with('success', 'Usuario eliminado con éxito');
+        } else {
+            return redirect()->route('usersAdmin')->with('error', 'Error al eliminar el usuario');
+        }
+    }
 
 
 }

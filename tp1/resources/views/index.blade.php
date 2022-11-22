@@ -111,6 +111,12 @@
                 @endforeach
             </div>
         </div>
+
+        <div class="pt-5 pb-5 align-items-center">
+            <h3 class="text-center">Ver todos los articulos</h3>
+            <a href="{{route('blog')}}" class="btn btn-primary centerbtn">Ver más</a>
+        </div>
+
     </section>
 
 @stop
