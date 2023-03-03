@@ -14,7 +14,7 @@
 <body class="hero-bg">
     <header class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-md">
-            <a class="navbar-brand" href="{{route('home')}}"><img id="header-logo" src=" {{ url('/imgs/logo.png') }}" alt=""></a>
+            <a class="navbar-brand" href="{{route('home')}}"><img id="header-logo" src=" {{ url('/imgs/logo.png') }}" alt="Organically"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,11 +39,7 @@
                 @endguest
                 @auth
                     @if (Auth::user()->admin)
-                        @if(Route::is('admin'))
-                            <li class="nav-item m-1">
-                                <a class="btn btn-primary" href="{{route('home')}}">Ir al sitio</a>
-                            </li>
-                        @else
+                        @if(!(Route::is('admin')))
                             <li class="nav-item m-1">
                                 <a class="btn btn-primary" href="{{route('admin')}}">Panel de administración</a>
                             </li>
@@ -87,7 +83,7 @@
     <footer class="bg-light">
         <div class="container-md">
             <div class="row">
-                <p class="text-center m-1">&copy Marcos Arcusin - DWT4AV | Portales y Comercio Electrónico</p>
+                <p class="text-center m-1">&copy; Marcos Arcusin - DWT4AV | Portales y Comercio Electrónico</p>
             </div>
         </div>
     </footer>

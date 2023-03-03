@@ -8,7 +8,7 @@
             <a href="#more" class="btn-primary btn">Leer Más</a>
         </div>
         <div class="col-md-6 order-first order-md-last d-flex">
-            <img src="{{url("/imgs/" . $article->image)}}" alt="" class="hero-img">
+            <img src="{{url("/imgs/" . $article->image)}}" alt="{{$article->image_alt}}" class="hero-img">
         </div>
     </section>
 

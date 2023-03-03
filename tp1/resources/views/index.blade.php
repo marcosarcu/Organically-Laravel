@@ -4,7 +4,7 @@
         <section class="row pt-5 pb-5 align-items-center g-5">
             <div class="col-md-6">
                 <h1>Administrar redes sociales nunca fue tan fácil</h1>
-                <p>Sabemos lo dificil que puede ser gestionar las diferente redes sociales de una marca. Por eso te venimos a ayudar.</p>
+                <p>Sabemos lo difícil que puede ser gestionar las diferentes redes sociales de una marca. Por eso te venimos a ayudar.</p>
                 <p>Con nuestra plataforma vas a poder gestionar tus redes sociales de una manera sencilla y rápida.</p>
                 <div class="btn-container d-flex gap-2">
                     <a href="#more" class="btn btn-outline-primary">Conocé Más</a>
@@ -12,34 +12,34 @@
                 </div>
             </div>
             <div class="col-md-6 order-first order-md-last d-flex">
-                <img src="{{url('/imgs/hero.svg')}}" alt="" class="hero-img">
+                <img src="{{url('/imgs/hero.svg')}}" class="hero-img">
             </div>
         </section>
 
     <section id="more" class="row pt-5 pb-5 align-items-center g-5">
         <div class="col-md-6">
             <h2>Gestioná todas tus redes desde un solo lugar</h2>
-            <p>Desde nuestra plataforma podrás administrar todos tus perfiles desde un mismo lugar. Tendrás acceso a una <b>bandeja de entrada unificada y podrás programar contenido en todos tus perfiles facilmente.</b></p>
+            <p>Desde nuestra plataforma podrás administrar todos tus perfiles desde un mismo lugar. Tendrás acceso a una <b>bandeja de entrada unificada y podrás programar contenido en todos tus perfiles fácilmente.</b></p>
             <div class="btn-container d-flex gap-2">
                 <a href="" class="btn btn-primary">Empezá Ya</a>
             </div>
         </div>
         <div class="col-md-6 order-first order-md-first d-flex">
-            <img src="{{url('/imgs/manage.svg')}}" alt="" class="hero-img">
+            <img src="{{url('/imgs/manage.svg')}}" class="hero-img">
         </div>
     </section>
 
     <section class="row pt-5 pb-5 align-items-center g-5">
         <div class="col-md-6">
             <h2>Obtené la ayuda y asesoramiento de expertos</h2>
-            <p>Nuestro sistema es <b>muy fácil de usar y esta repleto de tips para ayudarte a crecer más rapido.</b></p>
+            <p>Nuestro sistema es <b>muy fácil de usar y está repleto de tips para ayudarte a crecer más rápido.</b></p>
             <p>Además, tendrás acceso a nuestro <b>equipo de expertos que estan para ayudarte con cualquier duda.</b></p>
             <div class="btn-container d-flex gap-2">
                 <a href="" class="btn btn-primary">Empezá Ya</a>
             </div>
         </div>
         <div class="col-md-6 order-first order-md-last d-flex">
-            <img src="{{url('/imgs/help.svg')}}" alt="" class="help-img">
+            <img src="{{url('/imgs/help.svg')}}" class="help-img">
         </div>
     </section>
 
@@ -48,17 +48,17 @@
             <h2 class="text-center">Conocé nuestros planes</h2>
             <div class="cards-container">
                 @foreach ($services as $service)
-                <div class="card">
+                <article class="card">
                     <img class="card-img-top" src="{{url('/imgs/' . $service->image)}}" alt="{{$service->image_alt}}">
                     <div class="card-body">
                         <h3 class="card-title">{{$service->name}}</h3>
                         <p>{{$service->description}}</p>
-                        <div class="price">${{$service->price}}</div>
+                        <div class="price">${{$service->price}} <small>/mes</small></div>
                         <div class="btn-container d-flex gap-2">
                             <a href="" class="btn btn-primary">Empezá Ya</a>
                         </div>
                     </div>
-                </div>
+                </article>
                 @endforeach
             </div>
         </div>
@@ -100,20 +100,20 @@
         <div class="cards-container">
                 @foreach ($articles as $article)
                     <article class="card">
-                        <img class="card-img-top" src="{{url('/imgs/' . $article->image)}}" alt="">
+                        <img class="card-img-top" src="{{url('/imgs/' . $article->image)}}" alt="{{$article->image_alt}}">
                         <div class="card-body">
                             <h3 class="card-title">{{$article->title}}</h3>
                             <p>{{$article->description}}</p>
                             <div class="btn-container d-flex gap-2">
                                 <a href="{{route('blog.show', $article->id)}}" class="btn btn-primary">Leer más</a>
                             </div>
+                        </div>
                     </article>
                 @endforeach
-            </div>
         </div>
 
         <div class="pt-5 pb-5 align-items-center">
-            <h3 class="text-center">Ver todos los articulos</h3>
+            <h3 class="text-center">Ver todos los artículos</h3>
             <a href="{{route('blog')}}" class="btn btn-primary centerbtn">Ver más</a>
         </div>
 

@@ -11,13 +11,14 @@
 <div class="cards-container pt-5 pb-5">
     @foreach ($articles as $article)
         <article class="card">
-            <img class="card-img-top" src="{{url('/imgs/' . $article->image)}}" alt="">
+            <img class="card-img-top" src="{{url('/imgs/' . $article->image)}}" alt="{{$article->image_alt}}">
             <div class="card-body">
                 <h3 class="card-title">{{$article->title}}</h3>
                 <p>{{$article->description}}</p>
                 <div class="btn-container d-flex gap-2">
                     <a href="{{route('blog.show', $article->id)}}" class="btn btn-primary">Leer más</a>
                 </div>
+            </div>
         </article>
     @endforeach
 </div>
