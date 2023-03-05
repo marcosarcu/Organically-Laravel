@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="row">
+<section class="row pt-5 pb-5">
+    <h1>Registrate</h1>
     @if($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -22,8 +23,8 @@
         <input type="password" class="form-control mb-3" id="password" name="password" placeholder="Contraseña">
         <label for="password_confirmation" class="form-label">Confirmar Contraseña</label>
         <input type="password" class="form-control mb-3" id="password_confirmation" name="password_confirmation" placeholder="Confirmar Contraseña">
-        <button type="submit" class="btn btn-primary mb-3">Ingresar</button>
+        <button type="submit" class="btn btn-primary mb-3">Registrarse</button>
     </form>
-</div>
+</section>
 
 @stop

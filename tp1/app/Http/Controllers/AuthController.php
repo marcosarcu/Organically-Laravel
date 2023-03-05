@@ -28,12 +28,12 @@ class AuthController extends Controller
 
             if (Auth::user()->admin == true) {
                 return redirect()
-                ->route('admin')
-                ->with('success', 'Sesión iniciada con éxito. ¡Bienvenido/a de vuelta!');
+                ->intended('admin')
+                ->with('success', 'Sesión iniciada con éxito.');
             }
             return redirect()
-            ->route('home')
-            ->with('success', 'Sesión iniciada con éxito. ¡Bienvenido/a de vuelta!');
+            ->intended('home')
+            ->with('success', 'Sesión iniciada con éxito.');
 
         }
 
@@ -56,7 +56,15 @@ class AuthController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
-        return redirect()->route('loginForm')->with('success', 'Usuario creado con éxito. Inicie sesión para continuar');
+        $credentials =[
+            'email' => $request->input('email'),
+            'password' => $request->input('password'),
+        ];
+        
+        if (Auth::attempt($credentials)) {
+            request()->session()->regenerate();
+            return redirect()->intended('home')->with('success', 'Usuario creado con éxito.');
+        }
     }
 
     public function logout(Request $request){

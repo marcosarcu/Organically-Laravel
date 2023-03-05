@@ -8,7 +8,7 @@
                 <p>Con nuestra plataforma vas a poder gestionar tus redes sociales de una manera sencilla y rápida.</p>
                 <div class="btn-container d-flex gap-2">
                     <a href="#more" class="btn btn-outline-primary">Conocé Más</a>
-                    <a href="" class="btn btn-primary">Empezá Ya</a>
+                    <a href="#precios" class="btn btn-primary">Empezá Ya</a>
                 </div>
             </div>
             <div class="col-md-6 order-first order-md-last d-flex">
@@ -21,7 +21,7 @@
             <h2>Gestioná todas tus redes desde un solo lugar</h2>
             <p>Desde nuestra plataforma podrás administrar todos tus perfiles desde un mismo lugar. Tendrás acceso a una <b>bandeja de entrada unificada y podrás programar contenido en todos tus perfiles fácilmente.</b></p>
             <div class="btn-container d-flex gap-2">
-                <a href="" class="btn btn-primary">Empezá Ya</a>
+                <a href="#precios" class="btn btn-primary">Empezá Ya</a>
             </div>
         </div>
         <div class="col-md-6 order-first order-md-first d-flex">
@@ -35,7 +35,7 @@
             <p>Nuestro sistema es <b>muy fácil de usar y está repleto de tips para ayudarte a crecer más rápido.</b></p>
             <p>Además, tendrás acceso a nuestro <b>equipo de expertos que estan para ayudarte con cualquier duda.</b></p>
             <div class="btn-container d-flex gap-2">
-                <a href="" class="btn btn-primary">Empezá Ya</a>
+                <a href="#precios" class="btn btn-primary">Empezá Ya</a>
             </div>
         </div>
         <div class="col-md-6 order-first order-md-last d-flex">
@@ -55,7 +55,7 @@
                         <p>{{$service->description}}</p>
                         <div class="price">${{$service->price}} <small>/mes</small></div>
                         <div class="btn-container d-flex gap-2">
-                            <a href="" class="btn btn-primary">Empezá Ya</a>
+                            <a href="{{route('buy', $service->id)}}" class="btn btn-primary">Contratar ahora</a>
                         </div>
                     </div>
                 </article>

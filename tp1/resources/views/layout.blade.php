@@ -76,7 +76,7 @@
             <h2 class="text-light text-center">Comenzá a usar Organically</h2>
             <p class="text-light text-center">¿Qué estás esperando para potenciar tu crecimiento orgánico?</p>
             <div class="btn-container d-flex gap-2 justify-content-center">
-                <a href="" class="btn btn-light">Empezá Ya</a>
+                <a href="{{route('home')}}#precios" class="btn btn-light">Empezá Ya</a>
             </div>
         </section>
     @endif

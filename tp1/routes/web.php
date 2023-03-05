@@ -24,6 +24,10 @@ Route::post('/logout', ['\App\Http\Controllers\AuthController', 'logout'])->name
 Route::get('/register', ['\App\Http\Controllers\AuthController', 'registerForm'])->name('registerForm');
 Route::post('/register', ['\App\Http\Controllers\AuthController', 'register'])->name('register');
 
+// Logged in User routes
+Route::middleware(['auth'])->group(function () {
+    Route::get('/buy/{id}', ['\App\Http\Controllers\BuyController', 'buy'])->name('buy')->whereNumber('id');
+});
 
 Route::middleware(['admin'])->group(function () {
     // Admin routes
