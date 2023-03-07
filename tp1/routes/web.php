@@ -27,6 +27,13 @@ Route::post('/register', ['\App\Http\Controllers\AuthController', 'register'])->
 // Logged in User routes
 Route::middleware(['auth'])->group(function () {
     Route::get('/buy/{id}', ['\App\Http\Controllers\BuyController', 'buy'])->name('buy')->whereNumber('id');
+    Route::get('/buy/success', ['\App\Http\Controllers\BuyController', 'success'])->name('buy.success');
+    Route::get('/buy/pending', ['\App\Http\Controllers\BuyController', 'pending'])->name('buy.pending');
+    Route::get('/buy/failure', ['\App\Http\Controllers\BuyController', 'failure'])->name('buy.failure');
+    Route::get('/profile', ['\App\Http\Controllers\ProfileController', 'index'])->name('profile');
+    Route::get('/profile/edit', ['\App\Http\Controllers\ProfileController', 'edit'])->name('profile.edit');
+    Route::post('/profile/edit', ['\App\Http\Controllers\ProfileController', 'update'])->name('profile.update');
+    Route::get('/profile/edit/service', ['\App\Http\Controllers\ProfileController', 'editService'])->name('profile.editService');
 });
 
 Route::middleware(['admin'])->group(function () {

@@ -77,6 +77,8 @@ class AuthController extends Controller
         ->route('home')
         ->with('success', 'Sesión cerrada con éxito. ¡Hasta pronto!');
     }
+
+ 
 }
 
 

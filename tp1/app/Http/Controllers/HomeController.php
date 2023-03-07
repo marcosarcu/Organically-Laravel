@@ -19,7 +19,6 @@ class HomeController extends Controller
             $articlesShort[] = $article;
         }
 
-
         return view('index', [
         'title'=> 'Organically - Crecé con nosotros',
         'services'=> $services,

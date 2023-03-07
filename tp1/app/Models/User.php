@@ -52,6 +52,7 @@ class User extends Authenticatable
         'password',
         'admin',
         'contractedServiceId',
+        'contractedServiceAt',
     ];
 
     public const VALIDATE_RULES = [
