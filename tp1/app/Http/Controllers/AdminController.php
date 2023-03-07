@@ -12,8 +12,44 @@ class AdminController extends Controller
     // Index
     public function index()
     {
+        $users = User::all();
+        $services = Service::all();
+        $plan1 = 0;
+        $plan2 = 0;
+        $plan3 = 0;
+        $mostSubscribedPlan = '';
+        $activeUsers = 0;
+        forEach($users as $user){
+            
+            if($user->contracted_service_expires_at > now()){
+                $activeUsers++;
+            }
+            if($user->contracted_service_id == 1){
+                $plan1++;
+            } elseif($user->contracted_service_id == 2){
+                $plan2++;
+            } elseif($user->contracted_service_id == 3){
+                $plan3++;
+            }
+        }
+        if($plan1 > $plan2 && $plan1 > $plan3){
+            $mostSubscribedPlan = 'Básico';
+        } elseif($plan2 > $plan1 && $plan2 > $plan3){
+            $mostSubscribedPlan = 'Intermedio';
+        } elseif($plan3 > $plan1 && $plan3 > $plan2){
+            $mostSubscribedPlan = 'Premium';
+        } else {
+            $mostSubscribedPlan = 'No hay plan con mas subscriptores';
+        }
+
+        $estimatedSales = $plan1 * $services->find(1)->price + $plan2 * $services->find(2)->price + $plan3 * $services->find(3)->price;
+            
+        
         return view('/admin/index', [
-            'title' => 'Panel de Adminstración'
+            'title' => 'Panel de Adminstración',
+            'mostSubscribedPlan' => $mostSubscribedPlan,
+            'activeUsers' => $activeUsers,
+            'estimatedSales' => $estimatedSales
         ]
     );
     }

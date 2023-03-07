@@ -4,6 +4,11 @@
     <section class="row pt-5 pb-5 align-items-center g-5">
         <div class="col-md-6">
             <h1>Panel de Administración</h1>
+            <ul>
+                <li>Plan más contratado: <b>{{$mostSubscribedPlan}}</b></li>
+                <li>Usuarios con subscripciones activas: <b>{{$activeUsers}}</b></li>
+                <li>Ingresos estimados: <b>$ {{$estimatedSales}}</b></li>
+            </ul>
             <div class="btn-container d-flex gap-2">
                 <a href="{{route('servicesAdmin')}}" class="btn btn-outline-primary">Administrar Servicios</a>
                 <a href="{{route('usersAdmin')}}" class="btn btn-secondary">Administrar Usuarios</a>
@@ -14,14 +19,4 @@
             <img src="{{url('/imgs/admin.svg')}}" alt="" class="hero-img">
         </div>
     </section>
-
-
-
-
-
-    {{-- <pre>
-        {{print_r($articles)}}
-    </pre> --}}
-
-
 @stop

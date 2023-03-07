@@ -23,6 +23,8 @@ return new class extends Migration
             // $table->unsignedInteger('contractedServiceId')->nullable();
             $table->foreignId('contracted_service_id')->nullable()->constrained('services');
             $table->timestamp('contracted_service_at')->nullable();
+            $table->timestamp('contracted_service_expires_at')->nullable();
+            $table->timestamp('first_contracted_service_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

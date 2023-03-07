@@ -28,11 +28,11 @@ class AuthController extends Controller
 
             if (Auth::user()->admin == true) {
                 return redirect()
-                ->intended('admin')
+                ->intended('/admin')
                 ->with('success', 'Sesión iniciada con éxito.');
             }
             return redirect()
-            ->intended('home')
+            ->intended('/')
             ->with('success', 'Sesión iniciada con éxito.');
 
         }
@@ -63,7 +63,7 @@ class AuthController extends Controller
         
         if (Auth::attempt($credentials)) {
             request()->session()->regenerate();
-            return redirect()->intended('home')->with('success', 'Usuario creado con éxito.');
+            return redirect()->intended('/home')->with('success', 'Usuario creado con éxito.');
         }
     }
 

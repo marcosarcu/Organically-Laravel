@@ -12,15 +12,16 @@
             </ul>
             <a class="btn btn-primary mb-3" href="{{route('profile.edit')}}">Cambiar datos</a>
             <ul>
-                <li>{{$user->contracted_service_id ?? "No tenés ningún servicio contratado."}}</li>
+                <li>Tu primer mes con nosotros fue: {{\Carbon\Carbon::parse($user->first_contracted_service_at)->format('m/Y')}}.</li>
+                <li>Tenés contratado el plan <b>{{$service->name ?? "No tenés ningún servicio contratado."}}</b></li>
                 @if($user->contracted_service_at)
                     <li>Plan contratado el {{\Carbon\Carbon::parse($user->contracted_service_at)->format('d/m/Y')}}.</li>
-                    <li>Tu plan finaliza el {{\Carbon\Carbon::parse($user->contracted_service_at)->addMonth()->format('d/m/Y')}}.</li>
+                    <li>Tu plan finaliza el {{\Carbon\Carbon::parse($user->contracted_service_expires_at)->format('d/m/Y')}}.</li>
                 
                 @endif
             </ul>
             @if($user->contracted_service_at)
-                <a class="btn btn-primary" href="">Gestionar plan</a>
+                <a class="btn btn-primary" href="{{route('profile.editPlan')}}">Gestionar plan</a>
             @else
                 <a class="btn btn-primary" href="{{route('home')}}#precios">Contratar plan</a>
             @endif

@@ -33,7 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', ['\App\Http\Controllers\ProfileController', 'index'])->name('profile');
     Route::get('/profile/edit', ['\App\Http\Controllers\ProfileController', 'edit'])->name('profile.edit');
     Route::post('/profile/edit', ['\App\Http\Controllers\ProfileController', 'update'])->name('profile.update');
-    Route::get('/profile/edit/service', ['\App\Http\Controllers\ProfileController', 'editService'])->name('profile.editService');
+    Route::get('/profile/edit/plan', ['\App\Http\Controllers\ProfileController', 'editPlan'])->name('profile.editPlan');
+    Route::get('/profile/delete/plan', ['\App\Http\Controllers\ProfileController', 'confirmDeletePlan'])->name('profile.confirmDeletePlan');
+    Route::post('/profile/delete/plan', ['\App\Http\Controllers\ProfileController', 'deletePlan'])->name('profile.deletePlan');
 });
 
 Route::middleware(['admin'])->group(function () {

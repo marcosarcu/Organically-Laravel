@@ -47,6 +47,11 @@ class BuyController extends Controller
     public function success(Request $request){
         $user = auth()->user();
         $user->contracted_service_id = $request->query('service_id');
+        $user->contracted_service_at = now();
+        $user->contracted_service_expires_at = now()->addDays(30);
+        if(!$user->first_contracted_service_at){
+            $user->first_contracted_service_at = now();
+        }
         $user->save();
         return view('buy.buy-success', [
             'title' => 'Compra exitosa - Organically',

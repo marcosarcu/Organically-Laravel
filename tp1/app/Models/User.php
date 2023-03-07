@@ -53,6 +53,8 @@ class User extends Authenticatable
         'admin',
         'contractedServiceId',
         'contractedServiceAt',
+        'contractedServiceExpiresAt',
+        'firstContractedServiceAt'
     ];
 
     public const VALIDATE_RULES = [
